@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Farming - Dynamic Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+</head>
+
+<body>
+
+  <header>Smart Farming Dashboard (AI + IoT Powered)</header>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h3>Soil Moisture (YL-69)</h3>
+        <div class="live-value" id="moisture">-- %</div>
+      </div>
+      <div class="card">
+        <h3>Temperature (DHT-11)</h3>
+        <div class="live-value" id="temp">-- °C</div>
+      </div>
+      <div class="card">
+        <h3>Humidity (DHT-11)</h3>
+        <div class="live-value" id="humidity">-- %</div>
+      </div>
+      <div class="card">
+        <h3>Pump Status</h3>
+        <div class="live-value" id="irrigation">--</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="half">
+        <h3>Soil Moisture Over Time</h3>
+        <canvas id="moistureChart"></canvas>
+      </div>
+      <div class="half">
+        <h3>Air Temperature & Humidity Trend</h3>
+        <canvas id="tempHumidityChart"></canvas>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:1rem;">
+      <button id="resetZoomBtn" class="btn btn-success custom-reset-btn" onclick="resetZoomAll()">
+        <i class="bi bi-arrow-counterclockwise"></i> Reset Zoom
+      </button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
